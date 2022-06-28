@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do 21</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="./css/app.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+</head>
+<body class="container text-center">
+    <h1 class="center text-secondary mt-3">JOGO DO 21 COM JAVASCRIPT</h1>
+    <div class="row mt-5">
+        <div class="col">
+            <img id="player1-img" class="active" src="./assets/player1.png" alt="">
+            <h4>Player 1</h4>
+            <p><b>Pontos: </b><span id="points-p1">0</span></p>
+        </div>
+        <div class="col">
+            <img id="player2-img" src="./assets/player2.png" alt="">
+            <h4>Player 2</h4>
+            <p><b>Pontos: </b><span id="points-p2">0</span></p>
+        </div>
+    </div>
+    <div id="botoes">
+        <button class="btn btn-success" id="button-change-turn">Mudar Turno</button>
+        <button class="btn btn-primary" id="button-end-game">Finalizar jogo</button>
+        <button class="btn btn-danger" id="button-reset-game">Resetar</button>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between">
+        <img id="cards-pile" class="col-6 card-game" src="./assets/baralho-cartas.png" alt="Pilha de cartas não usadas.">
+        <img id="card" class="col-6 card-game" src="./assets/cards/1.png" alt="Carta tirada." style="display: none;">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
