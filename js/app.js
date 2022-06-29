@@ -14,8 +14,8 @@ notUsedCardsPile.addEventListener('click', ()=>{
     let card = ut.deck.getACard()
     ut.sumPointsToPlayer(card)
     ut.updatePointsOnScreen()
-    ut.printStatus()
     ut.checkRoundWinner()
+    ut.printStatus()
 })
 
 buttonResetGame.addEventListener('click', ut.restartGame)

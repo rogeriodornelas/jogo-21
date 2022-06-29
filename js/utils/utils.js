@@ -13,17 +13,28 @@ export function currentPlayingGame() {
     }
 }
 
-export function setNewRound() {
-    restartGame()
+function setRoundWinner(playerWinner, playerLoser) {
+    playerWinner.setRoundWin()
+    playerLoser.setRoundLost()
+    setNewRound()
+    changePlayersTurns()
+    printStatus()
 }
 
 export function checkRoundWinner() {
-    if (playerOne.setGetRoundLostOver() || playerTwo.setGetRoundLostOver()) {
-        const numPlayer = playerOne.setGetRoundLostOver() ? 1 : 2
-        swal.fire(`Round perdido pelo player ${numPlayer}`)
+    if (playerOne.getRoundLostOver() || playerTwo.getRoundLostOver()) {
+        const playerLoser = playerOne.getRoundLostOver() ? playerOne : playerTwo
+        const playerWinner = playerOne.getRoundLostOver() ? playerTwo : playerOne
+        swal.fire(`Round perdido pelo player ${playerLoser.id}`)
         .then(() => {
-            setNewRound()
-            changePlayersTurns()
+            setRoundWinner(playerWinner, playerLoser)
+        })
+    } else if (playerOne.points == 21 || playerTwo.points == 21) {
+        const playerWinner = playerOne.points == 21 ? playerOne : playerTwo
+        const playerLoser = playerOne.points == 21 ? playerTwo : playerOne
+        swal.fire(`Round ganho pelo player ${playerWinner.id}`)
+        .then(() => {
+            setRoundWinner(playerWinner, playerLoser)
         })
     }
 }
@@ -31,6 +42,10 @@ export function checkRoundWinner() {
 export function updatePointsOnScreen() {
     document.querySelector('#points-p1').innerText = playerOne.points
     document.querySelector('#points-p2').innerText = playerTwo.points
+    document.querySelector('#wins-p1').innerText = playerOne.getWins()
+    document.querySelector('#wins-p2').innerText = playerTwo.getWins()
+    document.querySelector('#losses-p1').innerHTML = playerOne.getLosts()
+    document.querySelector('#losses-p2').innerHTML = playerTwo.getLosts()
 }
 
 export function changePlayersTurns() {
@@ -40,6 +55,10 @@ export function changePlayersTurns() {
         document.querySelector('#player1-img').classList.toggle('active')
         document.querySelector('#player2-img').classList.toggle('active')
     }
+}
+
+export function setNewRound() {
+    restartGame()
 }
 
 export function restartGame() {

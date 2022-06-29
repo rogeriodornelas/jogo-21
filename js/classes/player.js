@@ -1,6 +1,6 @@
 export default class Player {
     constructor(id, currentTurn) {
-        this._id = id
+        this.id = id
         this.points = 0
         this._currentTurn = currentTurn
         this._status = 'playing' // can be won, lost or playing
@@ -19,9 +19,8 @@ export default class Player {
         this.points = 0
     }
 
-    setGetRoundLostOver() {
+    getRoundLostOver() {
         if (this.points > 21) {
-            this.setRoundLost()
             return true
         } else if (this.points) {
             return false
@@ -35,6 +34,10 @@ export default class Player {
     setRoundWin() {
         this._wins += 1
         return this.getWins()
+    }
+
+    getLosts() {
+        return this._losts
     }
 
     setRoundLost() {
