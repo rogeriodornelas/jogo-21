@@ -15,6 +15,7 @@ notUsedCardsPile.addEventListener('click', ()=>{
     ut.sumPointsToPlayer(card)
     ut.updatePointsOnScreen()
     ut.printStatus()
+    ut.checkRoundWinner()
 })
 
 buttonResetGame.addEventListener('click', ut.restartGame)

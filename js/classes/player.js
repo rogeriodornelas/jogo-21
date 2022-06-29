@@ -19,6 +19,29 @@ export default class Player {
         this.points = 0
     }
 
+    setGetRoundLostOver() {
+        if (this.points > 21) {
+            this.setRoundLost()
+            return true
+        } else if (this.points) {
+            return false
+        }
+    }
+
+    getWins() {
+        return this._wins
+    }
+
+    setRoundWin() {
+        this._wins += 1
+        return this.getWins()
+    }
+
+    setRoundLost() {
+        this._losts += 1
+        return this.getWins()
+    }
+
     getStatus() {
         return this._status
     }

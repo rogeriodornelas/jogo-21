@@ -13,14 +13,24 @@ export function currentPlayingGame() {
     }
 }
 
-// export function checkRoundWinner() {
+export function setNewRound() {
+    restartGame()
+}
 
-// }
+export function checkRoundWinner() {
+    if (playerOne.setGetRoundLostOver() || playerTwo.setGetRoundLostOver()) {
+        const numPlayer = playerOne.setGetRoundLostOver() ? 1 : 2
+        swal.fire(`Round perdido pelo player ${numPlayer}`)
+        .then(() => {
+            setNewRound()
+            changePlayersTurns()
+        })
+    }
+}
 
 export function updatePointsOnScreen() {
     document.querySelector('#points-p1').innerText = playerOne.points
     document.querySelector('#points-p2').innerText = playerTwo.points
-    console.log(playerOne, playerTwo)
 }
 
 export function changePlayersTurns() {
