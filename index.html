@@ -11,23 +11,26 @@
 </head>
 <body class="container text-center">
     <h1 class="center text-secondary mt-3">JOGO DO 21 COM JAVASCRIPT</h1>
+    <div class="container-sm">
+        <p>Se ultrapassar 21 pontos, perde. Se atingir, ganha. Se o outro jogador fizer mais pontos que você, sem ultrapassar 21 pontos, você perde.</p>
+    </div>
     <div class="row mt-5">
         <div class="col">
             <img id="player1-img" class="active" src="./assets/player1.png" alt="">
             <h4>Player 1</h4>
             <p><b>Pontos: </b><span id="points-p1">0</span></p>
-            <p><b>Partidas: </b>V<span id="wins-p1">0</span>/D<span id="losses-p1">0</span></p>
+            <p><b>Partidas: </b>V<span id="wins-p1">0</span>/D<span id="losses-p1">0</span>/E<span id="draws-p1">0</span></p>
         </div>
         <div class="col">
             <img id="player2-img" src="./assets/player2.png" alt="">
             <h4>Player 2</h4>
             <p><b>Pontos: </b><span id="points-p2">0</span></p>
-            <p><b>Partidas: </b>V<span id="wins-p2">0</span>/D<span id="losses-p2">0</span></p>
+            <p><b>Partidas: </b>V<span id="wins-p2">0</span>/D<span id="losses-p2">0</span>/E<span id="draws-p2">0</span></p>
         </div>
     </div>
     <div id="botoes">
         <button class="btn btn-success" id="button-change-turn">Mudar Turno</button>
-        <button class="btn btn-primary" id="button-end-game">Finalizar jogo</button>
+        <button class="btn btn-primary" id="button-draw-game">Empatar</button>
         <button class="btn btn-danger" id="button-reset-game">Resetar</button>
     </div>
     <hr>

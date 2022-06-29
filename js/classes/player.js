@@ -4,8 +4,10 @@ export default class Player {
         this.points = 0
         this._currentTurn = currentTurn
         this._status = 'playing' // can be won, lost or playing
+        this._playedOnTurn = currentTurn
         this._wins = 0
         this._losts = 0
+        this._draw = 0
     }
 
     sumPoints(points) {
@@ -27,6 +29,14 @@ export default class Player {
         }
     }
 
+    setRoundPlayed() {
+        this._playedOnTurn = true
+    }
+
+    setRoundNotPlayed() {
+        this._playedOnTurn = false
+    }
+
     getWins() {
         return this._wins
     }
@@ -45,6 +55,14 @@ export default class Player {
         return this.getWins()
     }
 
+    setDraw() {
+        this._draw += 1
+    }
+
+    getDraws() {
+        return this._draw
+    }
+
     getStatus() {
         return this._status
     }
@@ -53,8 +71,12 @@ export default class Player {
         this._status = 'playing'
     }
 
-    getTurn() {
+    getIfCurrentTurn() {
         return this._currentTurn
+    }
+
+    getIfPlayedOnTurn() {
+        return this._playedOnTurn
     }
 
     changeTurn() {
@@ -62,6 +84,15 @@ export default class Player {
             this._currentTurn = false
         } else {
             this._currentTurn = true
+            this._playedOnTurn = true
+        }
+    }
+
+    newTurn() {
+        if (this._currentTurn) {
+            this._playedOnTurn = true
+        } else {
+            this._playedOnTurn = false
         }
     }
 
